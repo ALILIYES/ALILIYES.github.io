@@ -30,7 +30,7 @@
   }
 
   /* Header */
-  header { margin-bottom: 64px; }
+  header { margin-bottom: 56px; }
   h1 {
     font-size: 40px;
     font-weight: 700;
@@ -48,7 +48,7 @@
     margin-top: 14px;
     color: var(--gray);
     font-size: 15.5px;
-    max-width: 560px;
+    max-width: 580px;
   }
   .contact {
     margin-top: 22px;
@@ -127,6 +127,10 @@
   }
   ul.points li strong { font-weight: 600; color: var(--ink); }
 
+  /* Highlights */
+  .highlights { margin-top: 0; }
+  .highlights li { font-size: 15px; margin-bottom: 8px; }
+
   /* Skills */
   .skills {
     display: grid;
@@ -168,8 +172,8 @@
     <h1>力宇阳</h1>
     <div class="title-line">系统优化工程师 · System Optimization Engineer</div>
     <p class="tagline">
-      专注性能分析与优化：微架构数据分析、编译反馈优化、功耗与帧率调优。
-      华东师范大学系统优化实验室（SOLE）硕士，现就职于小米，负责手机游戏性能的系统级优化。
+      我在小米做手机游戏性能的系统级优化与微架构预研，此前在腾讯云做服务器性能评估与优化平台开发。
+      硕士毕业于华东师范大学系统优化实验室（SOLE）。工作是回答一个问题：机器的时间都花在哪了。
     </p>
     <div class="contact">
       <a href="mailto:1357918777@qq.com">1357918777@qq.com</a>
@@ -177,6 +181,17 @@
       <span>上海</span>
     </div>
   </header>
+
+  <section class="highlights">
+    <h2>代表成果 Highlights</h2>
+    <ul class="points">
+      <li>发起并参与 <strong>AutoFDO 专项</strong>：基于 ETM 微架构数据指导编译器优化内核，多款游戏帧率提升、<strong>功耗下降 200+ mW</strong></li>
+      <li>优化 PUBG 帧率与功耗指标<strong>下降 17%</strong>，单项目达成 7 项游戏优化挑战目标；累计解决 20+ 款游戏性能问题</li>
+      <li><strong>CCF A 类论文</strong>（锁竞争检测）、<strong>Bench 2023 一作论文</strong>（内存性能评估）、<strong>国家发明专利</strong> 1 项</li>
+      <li>落地腾讯云服务器评测流水线 <strong>TencentBench</strong>，内存评测全自动化</li>
+      <li>小米<strong>软件部 AI 能效突破奖</strong>，绩效 <strong>S / A</strong> 级评价</li>
+    </ul>
+  </section>
 
   <section>
     <h2>工作经历 Experience</h2>
@@ -212,32 +227,12 @@
   </section>
 
   <section>
-    <h2>教育经历 Education</h2>
-
-    <div class="entry">
-      <div class="entry-head">
-        <div class="entry-title">华东师范大学 <span class="role">（985 · 双一流）· 硕士</span></div>
-        <div class="entry-date">2021.09 — 2024.06</div>
-      </div>
-      <div class="entry-sub">SOLE 系统优化实验室，师从郭健美教授、黄波教授</div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-head">
-        <div class="entry-title">上海工程技术大学 <span class="role">· 本科</span></div>
-        <div class="entry-date">2017.09 — 2021.06</div>
-      </div>
-      <div class="entry-sub">信息管理与信息系统专业</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>科研与荣誉 Research &amp; Honors</h2>
+    <h2>论文 · 专利 · 荣誉 Research &amp; Honors</h2>
     <ul class="points">
-      <li>小米<strong>软件部 AI 能效突破奖</strong>、<strong>手机部优榜样</strong>、<strong>手机部季度之星</strong>；绩效优异，曾获 <strong>S 级与 A 级</strong>绩效评价</li>
       <li><strong>CCF A 类会议论文</strong> 1 篇（第二作者，锁竞争检测方向）</li>
       <li><strong>Bench 2023 会议论文</strong> 1 篇（第一作者，内存性能评估方向）</li>
       <li>国家发明专利 1 项（华东师范大学与腾讯云联合申请，公开号：202211363677.2）</li>
+      <li>小米<strong>软件部 AI 能效突破奖</strong>、<strong>手机部优榜样</strong>、<strong>手机部季度之星</strong>；绩效优异，曾获 <strong>S 级与 A 级</strong>绩效评价</li>
       <li>腾讯云服务器评测调优开源协同荣誉证书（腾讯技术委员会颁发）、腾讯云“小红花 · 日拱一卒”奖</li>
       <li>上海市优秀毕业生、校优秀学生、企业奖学金</li>
       <li>中国大学生计算机设计大赛二等奖、上海市大学生计算机应用能力大赛二等奖</li>
@@ -256,6 +251,26 @@
       <dt>工程能力</dt>
       <dd>C / C++ · Python · Git · 性能评测流水线与平台开发</dd>
     </dl>
+  </section>
+
+  <section>
+    <h2>教育经历 Education</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">华东师范大学 <span class="role">（985 · 双一流）· 硕士</span></div>
+        <div class="entry-date">2021.09 — 2024.06</div>
+      </div>
+      <div class="entry-sub">SOLE 系统优化实验室，师从郭健美教授、黄波教授</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">上海工程技术大学 <span class="role">· 本科</span></div>
+        <div class="entry-date">2017.09 — 2021.06</div>
+      </div>
+      <div class="entry-sub">信息管理与信息系统专业</div>
+    </div>
   </section>
 
   <footer>
