@@ -1,207 +1,268 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>力宇阳 · 系统优化工程师</title>
+<meta name="description" content="力宇阳 — 系统优化工程师，专注于性能分析、微架构优化与编译优化。">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --gray: #6b6b6b;
+    --light: #9a9a9a;
+    --line: #e5e5e5;
+    --accent: #b3541e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                 "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.75;
+    font-size: 16px;
+  }
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 96px 28px 80px;
+  }
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+  /* Header */
+  header { margin-bottom: 64px; }
+  h1 {
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+  .title-line {
+    margin-top: 10px;
+    font-size: 18px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .tagline {
+    margin-top: 14px;
+    color: var(--gray);
+    font-size: 15.5px;
+    max-width: 560px;
+  }
+  .contact {
+    margin-top: 22px;
+    font-size: 14.5px;
+    color: var(--gray);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+  }
+  .contact a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    transition: border-color .15s;
+  }
+  .contact a:hover { border-bottom-color: var(--ink); }
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  /* Sections */
+  section { margin-top: 56px; }
+  h2 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--light);
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 24px;
+  }
 
-  
-<meta name="generator" content="Hexo 6.0.0"></head>
+  .entry { margin-bottom: 28px; }
+  .entry:last-child { margin-bottom: 0; }
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .entry-title {
+    font-size: 16.5px;
+    font-weight: 600;
+  }
+  .entry-title .role { font-weight: 400; color: var(--gray); }
+  .entry-date {
+    font-size: 13.5px;
+    color: var(--light);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .entry-sub {
+    font-size: 14px;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+  ul.points {
+    margin-top: 10px;
+    padding-left: 0;
+    list-style: none;
+  }
+  ul.points li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 14.5px;
+    color: #3d3d3d;
+    margin-bottom: 6px;
+  }
+  ul.points li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 6px;
+    height: 1.5px;
+    background: var(--light);
+  }
+  ul.points li strong { font-weight: 600; color: var(--ink); }
 
+  /* Skills */
+  .skills {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    row-gap: 12px;
+    column-gap: 20px;
+    font-size: 14.5px;
+  }
+  .skills dt { color: var(--light); font-size: 13.5px; padding-top: 1px; }
+  .skills dd { color: #3d3d3d; }
+
+  /* Footer */
+  footer {
+    margin-top: 72px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--light);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  footer a { color: var(--gray); text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+
+  @media (max-width: 560px) {
+    .page { padding: 56px 22px 60px; }
+    h1 { font-size: 32px; }
+    .skills { grid-template-columns: 1fr; row-gap: 4px; }
+    .skills dd { margin-bottom: 10px; }
+  }
+</style>
+</head>
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+<div class="page">
+
+  <header>
+    <h1>力宇阳</h1>
+    <div class="title-line">系统优化工程师 · System Optimization Engineer</div>
+    <p class="tagline">
+      专注性能分析与优化：微架构数据分析、编译反馈优化、功耗与帧率调优。
+      华东师范大学系统优化实验室（SOLE）硕士，现就职于小米，负责手机游戏性能的系统级优化。
+    </p>
+    <div class="contact">
+      <a href="mailto:1357918777@qq.com">1357918777@qq.com</a>
+      <a href="https://github.com/ALILIYES" target="_blank" rel="noopener">github.com/ALILIYES</a>
+      <span>上海</span>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+  </header>
+
+  <section>
+    <h2>工作经历 Experience</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">小米科技 <span class="role">· 系统优化工程师</span></div>
+        <div class="entry-date">2024.07 — 至今</div>
       </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/01/19/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2022-01-19T11:54:09.099Z" itemprop="datePublished">2022-01-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/01/19/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/01/19/hello-world/" data-id="ckylhncxj00004838edtgd5t2" data-title="Hello World" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2022/01/19/hello-world/">Hello World</a>
-          </li>
-        
+      <div class="entry-sub">游戏在研交付与体系化交付 / 微架构预研专项开发</div>
+      <ul class="points">
+        <li>手机游戏系统优化在研交付：优化 PUBG 帧率与功耗指标 <strong>下降 17%</strong>，达成 7 项游戏优化挑战目标；解决 20+ 款游戏掉帧、卡顿、加载慢等问题。</li>
+        <li>负责《英雄联盟手游》全部性能问题优化，性能持平 / 超越竞品并通过送测标准；开发优化配置自动化检查工具，提升交付质量与效率。</li>
+        <li>发起并参与 <strong>AutoFDO 专项</strong>：基于 ETM 采集微架构数据指导编译器优化内核，帧率提升的同时多款游戏功耗<strong>下降 200+ mW</strong>。</li>
+        <li>基于 TopDown 方法拆解竞品 IPC 微架构优势，建立微架构优化技术洞察；参与差分火焰图、线程微架构对比等性能分析工具开发。</li>
       </ul>
     </div>
-  </div>
 
-  
-</aside>
-        
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">腾讯云计算 <span class="role">· 服务器性能工程师（实习）</span></div>
+        <div class="entry-date">2022.02 — 2023.09</div>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2022 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+      <div class="entry-sub">云服务器性能评估与建模 / 性能分析优化平台开发</div>
+      <ul class="points">
+        <li>提出综合内存评估指标，落地腾讯云服务器评测流水线 <strong>TencentBench</strong>，实现内存评测自动化，提升服务器评估选型效率。</li>
+        <li>结合 USE 方法开发 Adhoc 性能检测工具，快速生成系统性能检测报告与优化建议。</li>
+        <li>参与性能数据分析优化平台迭代（Python / C++），优化 BCC 内存泄漏检测工具，<strong>检测效率提升约 40%</strong>；累计贡献代码 2k+ 行。</li>
+        <li>独立分析 5+ 项业务（TDSQL、腾讯企点）内存性能异常案例，通过 eBPF 追踪定位性能瓶颈，平均减少 2 周以上排查时间。</li>
+        <li>验证缓存硬件预取配置对 MySQL 在 X86 / Arm 架构上 <strong>QPS 3%–8%</strong> 的优化效果；完成 NUMA 分配策略与跨节点内存延迟测量。</li>
+      </ul>
     </div>
-  </div>
-</footer>
+  </section>
 
+  <section>
+    <h2>教育经历 Education</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">华东师范大学 <span class="role">（985 · 双一流）· 硕士</span></div>
+        <div class="entry-date">2021.09 — 2024.06</div>
+      </div>
+      <div class="entry-sub">SOLE 系统优化实验室，师从郭健美教授、黄波教授</div>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
 
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">上海工程技术大学 <span class="role">· 本科</span></div>
+        <div class="entry-date">2017.09 — 2021.06</div>
+      </div>
+      <div class="entry-sub">信息管理与信息系统专业</div>
+    </div>
+  </section>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+  <section>
+    <h2>科研与荣誉 Research &amp; Honors</h2>
+    <ul class="points">
+      <li>小米<strong>软件部 AI 能效突破奖</strong>、<strong>手机部优榜样</strong>、<strong>手机部季度之星</strong>；绩效优异，曾获 <strong>S 级与 A 级</strong>绩效评价</li>
+      <li><strong>CCF A 类会议论文</strong> 1 篇（第二作者，锁竞争检测方向）</li>
+      <li><strong>Bench 2023 会议论文</strong> 1 篇（第一作者，内存性能评估方向）</li>
+      <li>国家发明专利 1 项（华东师范大学与腾讯云联合申请，公开号：202211363677.2）</li>
+      <li>腾讯云服务器评测调优开源协同荣誉证书（腾讯技术委员会颁发）、腾讯云“小红花 · 日拱一卒”奖</li>
+      <li>上海市优秀毕业生、校优秀学生、企业奖学金</li>
+      <li>中国大学生计算机设计大赛二等奖、上海市大学生计算机应用能力大赛二等奖</li>
+    </ul>
+  </section>
 
+  <section>
+    <h2>核心技能 Skills</h2>
+    <dl class="skills">
+      <dt>性能分析</dt>
+      <dd>Perfetto / Perf 采样与热点分析 · TopDown 微架构分析 · 差分火焰图 · USE 方法</dd>
+      <dt>系统优化</dt>
+      <dd>AutoFDO 反馈编译优化 · 帧率与功耗调优 · NUMA / 内存优化 · 缓存预取</dd>
+      <dt>系统技术</dt>
+      <dd>eBPF / BCC 开发 · ETM 微架构数据采集 · Linux 性能指标体系</dd>
+      <dt>工程能力</dt>
+      <dd>C / C++ · Python · Git · 性能评测流水线与平台开发</dd>
+    </dl>
+  </section>
 
+  <footer>
+    <span>© 2026 力宇阳 · Li Yuyang</span>
+    <span><a href="mailto:1357918777@qq.com">Email</a> · <a href="https://github.com/ALILIYES" target="_blank" rel="noopener">GitHub</a></span>
+  </footer>
 
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
+</div>
 </body>
 </html>
