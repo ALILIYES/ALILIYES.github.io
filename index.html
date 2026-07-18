@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,30 +26,78 @@
   .page {
     max-width: 720px;
     margin: 0 auto;
-    padding: 96px 28px 80px;
+    padding: 88px 28px 80px;
+    position: relative;
   }
 
+  /* Language toggle */
+  .lang-toggle {
+    position: absolute;
+    top: 30px;
+    right: 28px;
+    font-family: inherit;
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    color: var(--gray);
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: color .15s, border-color .15s;
+  }
+  .lang-toggle:hover { color: var(--ink); border-color: var(--gray); }
+
+  html[data-lang="zh"] .en { display: none; }
+  html[data-lang="en"] .zh { display: none; }
+
   /* Header */
-  header { margin-bottom: 56px; }
+  header { margin-bottom: 52px; }
+  .masthead {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+  }
+  .avatar {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    flex: none;
+  }
   h1 {
-    font-size: 40px;
+    font-family: "Songti SC", "STSong", "SimSun", "Noto Serif CJK SC", serif;
+    font-size: 38px;
     font-weight: 700;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     line-height: 1.2;
   }
+  html[data-lang="en"] h1 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                 "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    letter-spacing: 0.01em;
+  }
   .title-line {
-    margin-top: 10px;
-    font-size: 18px;
+    margin-top: 8px;
+    font-size: 17px;
     color: var(--accent);
     font-weight: 600;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
   }
-  .tagline {
-    margin-top: 14px;
+  .bio {
+    margin-top: 26px;
     color: var(--gray);
-    font-size: 15.5px;
-    max-width: 580px;
+    font-size: 15px;
+    max-width: 640px;
+    text-align: justify;
   }
+  .bio a {
+    color: var(--gray);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    transition: color .15s, border-color .15s;
+  }
+  .bio a:hover { color: var(--ink); border-bottom-color: var(--ink); }
   .contact {
     margin-top: 22px;
     font-size: 14.5px;
@@ -67,7 +115,7 @@
   .contact a:hover { border-bottom-color: var(--ink); }
 
   /* Sections */
-  section { margin-top: 56px; }
+  section { margin-top: 52px; }
   h2 {
     font-size: 13px;
     font-weight: 700;
@@ -76,7 +124,7 @@
     text-transform: uppercase;
     padding-bottom: 10px;
     border-bottom: 1px solid var(--line);
-    margin-bottom: 24px;
+    margin-bottom: 22px;
   }
 
   .entry { margin-bottom: 28px; }
@@ -104,6 +152,8 @@
     color: var(--gray);
     margin-top: 2px;
   }
+  .entry-sub a { color: var(--gray); text-decoration: none; border-bottom: 1px solid var(--line); }
+  .entry-sub a:hover { color: var(--ink); border-bottom-color: var(--ink); }
   ul.points {
     margin-top: 10px;
     padding-left: 0;
@@ -128,13 +178,12 @@
   ul.points li strong { font-weight: 600; color: var(--ink); }
 
   /* Highlights */
-  .highlights { margin-top: 0; }
   .highlights li { font-size: 15px; margin-bottom: 8px; }
 
   /* Skills */
   .skills {
     display: grid;
-    grid-template-columns: 130px 1fr;
+    grid-template-columns: 150px 1fr;
     row-gap: 12px;
     column-gap: 20px;
     font-size: 14.5px;
@@ -158,126 +207,171 @@
   footer a:hover { color: var(--ink); }
 
   @media (max-width: 560px) {
-    .page { padding: 56px 22px 60px; }
-    h1 { font-size: 32px; }
+    .page { padding: 64px 22px 60px; }
+    h1 { font-size: 30px; }
+    .masthead { gap: 18px; }
+    .avatar { width: 72px; height: 72px; }
     .skills { grid-template-columns: 1fr; row-gap: 4px; }
     .skills dd { margin-bottom: 10px; }
+    .lang-toggle { top: 22px; right: 22px; }
   }
 </style>
 </head>
 <body>
 <div class="page">
 
+  <button class="lang-toggle" id="langToggle" type="button">EN</button>
+
   <header>
-    <h1>力宇阳</h1>
-    <div class="title-line">系统优化工程师 · System Optimization Engineer</div>
-    <p class="tagline">
-      我在小米做手机游戏性能的系统级优化与微架构预研，此前在腾讯云做服务器性能评估与优化平台开发。
-      硕士毕业于华东师范大学系统优化实验室（SOLE）。工作是回答一个问题：机器的时间都花在哪了。
+    <div class="masthead">
+      <img class="avatar" alt="力宇阳 Yuyang Li" src="data:image/jpeg;base64,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">
+      <div>
+        <h1><span class="zh">力宇阳</span><span class="en">Yuyang Li</span></h1>
+        <div class="title-line"><span class="zh">系统优化工程师</span><span class="en">System Optimization Engineer</span></div>
+      </div>
+    </div>
+    <p class="bio">
+      <span class="zh">力宇阳，现任小米科技系统优化工程师，从事移动终端游戏性能的系统级优化与微架构预研，工作涵盖反馈式编译优化（AutoFDO）、微架构性能数据分析、帧率与功耗调优等方向。此前任腾讯云服务器性能工程师，负责云服务器性能评估与建模、性能分析优化平台开发及线上业务性能问题定位。硕士毕业于华东师范大学<a href="https://solelab.tech/" target="_blank" rel="noopener">系统优化实验室（SOLE）</a>，师从郭健美教授与黄波教授，主要研究兴趣为系统性能分析与优化方法。</span><span class="en">Yuyang Li is a System Optimization Engineer at Xiaomi, where he works on system-level performance optimization for mobile gaming and microarchitecture research, spanning feedback-directed compiler optimization (AutoFDO), microarchitecture performance analysis, and frame-rate / power tuning. Previously, he was a Server Performance Engineer at Tencent Cloud, responsible for performance evaluation and modeling of cloud servers, development of performance analysis platforms, and diagnosis of production performance issues. He received his M.S. from East China Normal University as a member of the <a href="https://solelab.tech/" target="_blank" rel="noopener">System Optimization Laboratory (SOLE)</a>, advised by Prof. Jianmei Guo and Prof. Bo Huang. His research interest lies in systems performance analysis and optimization.</span>
     </p>
     <div class="contact">
       <a href="mailto:1357918777@qq.com">1357918777@qq.com</a>
       <a href="https://github.com/ALILIYES" target="_blank" rel="noopener">github.com/ALILIYES</a>
-      <span>上海</span>
+      <span><span class="zh">上海</span><span class="en">Shanghai</span></span>
     </div>
   </header>
 
   <section class="highlights">
-    <h2>代表成果 Highlights</h2>
+    <h2><span class="zh">代表成果</span><span class="en">Highlights</span></h2>
     <ul class="points">
-      <li>发起并参与 <strong>AutoFDO 专项</strong>：基于 ETM 微架构数据指导编译器优化内核，多款游戏帧率提升、<strong>功耗下降 200+ mW</strong></li>
-      <li>优化 PUBG 帧率与功耗指标<strong>下降 17%</strong>，单项目达成 7 项游戏优化挑战目标；累计解决 20+ 款游戏性能问题</li>
-      <li><strong>CCF-A（TPDS）论文</strong> TCSA · 26th ACM SIGOPS ChinaSys Spotlight Paper、<strong>Bench 2023 论文</strong> Hmem、<strong>国家发明专利</strong> 1 项</li>
-      <li>落地腾讯云服务器评测流水线 <strong>TencentBench</strong>，内存评测全自动化</li>
-      <li>小米<strong>软件部 AI 能效突破奖</strong>，绩效 <strong>S / A</strong> 级评价</li>
+      <li><span class="zh">发起并参与 <strong>AutoFDO 专项</strong>：基于 ETM 微架构数据指导编译器优化内核，多款游戏帧率提升、<strong>功耗下降 200+ mW</strong></span><span class="en">Initiated and contributed to the <strong>AutoFDO program</strong>: ETM-based microarchitecture data guiding compiler optimization of the kernel — higher frame rates with <strong>200+ mW lower power</strong> across multiple games</span></li>
+      <li><span class="zh">优化 PUBG 帧率与功耗指标<strong>下降 17%</strong>，单项目达成 7 项游戏优化挑战目标；累计解决 20+ 款游戏性能问题</span><span class="en">Improved PUBG frame-rate / power metrics by <strong>17%</strong>, achieving 7 game-optimization challenge targets in a single project; resolved performance issues across 20+ game titles</span></li>
+      <li><span class="zh"><strong>CCF-A（TPDS）论文</strong> TCSA · 26th ACM SIGOPS ChinaSys Spotlight Paper、<strong>Bench 2023 论文</strong> Hmem、<strong>国家发明专利</strong> 1 项</span><span class="en"><strong>CCF-A paper (TPDS)</strong> TCSA · 26th ACM SIGOPS ChinaSys Spotlight Paper · <strong>Bench 2023 paper</strong> Hmem · <strong>1 national invention patent</strong></span></li>
+      <li><span class="zh">落地腾讯云服务器评测流水线 <strong>TencentBench</strong>，内存评测全自动化</span><span class="en">Built <strong>TencentBench</strong>, Tencent Cloud's benchmark pipeline that fully automates server memory evaluation</span></li>
+      <li><span class="zh">小米<strong>软件部 AI 能效突破奖</strong>，绩效 <strong>S / A</strong> 级评价</span><span class="en">Xiaomi <strong>Software Division AI Energy-Efficiency Breakthrough Award</strong>; <strong>S / A</strong> performance ratings</span></li>
     </ul>
   </section>
 
   <section>
-    <h2>工作经历 Experience</h2>
+    <h2><span class="zh">工作经历</span><span class="en">Experience</span></h2>
 
     <div class="entry">
       <div class="entry-head">
-        <div class="entry-title">小米科技 <span class="role">· 系统优化工程师</span></div>
-        <div class="entry-date">2024.07 — 至今</div>
+        <div class="entry-title"><span class="zh">小米科技 <span class="role">· 系统优化工程师</span></span><span class="en">Xiaomi <span class="role">· System Optimization Engineer</span></span></div>
+        <div class="entry-date"><span class="zh">2024.07 — 至今</span><span class="en">Jul 2024 — Present</span></div>
       </div>
-      <div class="entry-sub">游戏在研交付与体系化交付 / 微架构预研专项开发</div>
+      <div class="entry-sub"><span class="zh">游戏在研交付与体系化交付 / 微架构预研专项开发</span><span class="en">In-development game optimization &amp; delivery / Microarchitecture research programs</span></div>
       <ul class="points">
-        <li>手机游戏系统优化在研交付：优化 PUBG 帧率与功耗指标 <strong>下降 17%</strong>，达成 7 项游戏优化挑战目标；解决 20+ 款游戏掉帧、卡顿、加载慢等问题。</li>
-        <li>负责《英雄联盟手游》全部性能问题优化，性能持平 / 超越竞品并通过送测标准；开发优化配置自动化检查工具，提升交付质量与效率。</li>
-        <li>发起并参与 <strong>AutoFDO 专项</strong>：基于 ETM 采集微架构数据指导编译器优化内核，帧率提升的同时多款游戏功耗<strong>下降 200+ mW</strong>。</li>
-        <li>基于 TopDown 方法拆解竞品 IPC 微架构优势，建立微架构优化技术洞察；参与差分火焰图、线程微架构对比等性能分析工具开发。</li>
+        <li><span class="zh">手机游戏系统优化在研交付：优化 PUBG 帧率与功耗指标 <strong>下降 17%</strong>，达成 7 项游戏优化挑战目标；解决 20+ 款游戏掉帧、卡顿、加载慢等问题。</span><span class="en">System-level optimization for mobile games in development: improved PUBG frame-rate / power metrics by <strong>17%</strong> and achieved 7 optimization challenge targets; resolved frame drops, stuttering, and slow-loading issues across 20+ titles.</span></li>
+        <li><span class="zh">负责《英雄联盟手游》全部性能问题优化，性能持平 / 超越竞品并通过送测标准；开发优化配置自动化检查工具，提升交付质量与效率。</span><span class="en">Owned all performance optimization for <em>League of Legends: Wild Rift</em>, reaching parity with or surpassing competing devices and passing certification; developed an automated checker for optimization configurations, improving delivery quality and efficiency.</span></li>
+        <li><span class="zh">发起并参与 <strong>AutoFDO 专项</strong>：基于 ETM 采集微架构数据指导编译器优化内核，帧率提升的同时多款游戏功耗<strong>下降 200+ mW</strong>。</span><span class="en">Initiated and contributed to the <strong>AutoFDO program</strong>: collected microarchitecture data via ETM to guide compiler optimization of the kernel, improving frame rates while reducing power consumption by <strong>200+ mW</strong> across multiple games.</span></li>
+        <li><span class="zh">基于 TopDown 方法拆解竞品 IPC 微架构优势，建立微架构优化技术洞察；参与差分火焰图、线程微架构对比等性能分析工具开发。</span><span class="en">Deconstructed competitors' IPC microarchitecture advantages through TopDown analysis, building technical insight for microarchitecture optimization; contributed to performance analysis tools including differential flame graphs and thread-level microarchitecture comparison.</span></li>
       </ul>
     </div>
 
     <div class="entry">
       <div class="entry-head">
-        <div class="entry-title">腾讯云计算 <span class="role">· 服务器性能工程师（实习）</span></div>
+        <div class="entry-title"><span class="zh">腾讯云计算 <span class="role">· 服务器性能工程师（实习）</span></span><span class="en">Tencent Cloud <span class="role">· Server Performance Engineer (Intern)</span></span></div>
         <div class="entry-date">2022.02 — 2023.09</div>
       </div>
-      <div class="entry-sub">云服务器性能评估与建模 / 性能分析优化平台开发</div>
+      <div class="entry-sub"><span class="zh">云服务器性能评估与建模 / 性能分析优化平台开发</span><span class="en">Cloud server performance evaluation &amp; modeling / Performance analysis platform development</span></div>
       <ul class="points">
-        <li>提出综合内存评估指标，落地腾讯云服务器评测流水线 <strong>TencentBench</strong>，实现内存评测自动化，提升服务器评估选型效率。</li>
-        <li>结合 USE 方法开发 Adhoc 性能检测工具，快速生成系统性能检测报告与优化建议。</li>
-        <li>参与性能数据分析优化平台迭代（Python / C++），优化 BCC 内存泄漏检测工具，<strong>检测效率提升约 40%</strong>；累计贡献代码 2k+ 行。</li>
-        <li>独立分析 5+ 项业务（TDSQL、腾讯企点）内存性能异常案例，通过 eBPF 追踪定位性能瓶颈，平均减少 2 周以上排查时间。</li>
-        <li>验证缓存硬件预取配置对 MySQL 在 X86 / Arm 架构上 <strong>QPS 3%–8%</strong> 的优化效果；完成 NUMA 分配策略与跨节点内存延迟测量。</li>
+        <li><span class="zh">提出综合内存评估指标，落地腾讯云服务器评测流水线 <strong>TencentBench</strong>，实现内存评测自动化，提升服务器评估选型效率。</span><span class="en">Proposed a holistic memory evaluation metric and built <strong>TencentBench</strong>, an automated server benchmark pipeline that improved the efficiency of server evaluation and selection.</span></li>
+        <li><span class="zh">结合 USE 方法开发 Adhoc 性能检测工具，快速生成系统性能检测报告与优化建议。</span><span class="en">Developed the Adhoc performance diagnosis tool based on the USE method, rapidly generating system performance reports and optimization recommendations.</span></li>
+        <li><span class="zh">参与性能数据分析优化平台迭代（Python / C++），优化 BCC 内存泄漏检测工具，<strong>检测效率提升约 40%</strong>；累计贡献代码 2k+ 行。</span><span class="en">Iterated on the performance data analysis platform (Python / C++); optimized the BCC memory-leak detection tool, improving detection efficiency by <strong>~40%</strong>; contributed 2k+ lines of code.</span></li>
+        <li><span class="zh">独立分析 5+ 项业务（TDSQL、腾讯企点）内存性能异常案例，通过 eBPF 追踪定位性能瓶颈，平均减少 2 周以上排查时间。</span><span class="en">Independently diagnosed 5+ memory performance incidents for production services (TDSQL, Tencent Qidian), identifying bottlenecks with eBPF tracing and reducing troubleshooting time by over two weeks per case.</span></li>
+        <li><span class="zh">验证缓存硬件预取配置对 MySQL 在 X86 / Arm 架构上 <strong>QPS 3%–8%</strong> 的优化效果；完成 NUMA 分配策略与跨节点内存延迟测量。</span><span class="en">Validated <strong>3%–8% MySQL QPS</strong> gains from cache hardware-prefetch configurations on x86 / Arm platforms; measured NUMA allocation strategies and cross-node memory latency.</span></li>
       </ul>
     </div>
   </section>
 
   <section>
-    <h2>论文 · 专利 · 荣誉 Research &amp; Honors</h2>
+    <h2><span class="zh">论文与专利</span><span class="en">Publications &amp; Patent</span></h2>
     <ul class="points">
       <li>N. Li, J. Guo, B. Huang, Y. Li, Y. Zhang, C. Li, and W. Huang, "<strong>TCSA: Efficient Localization of Busy-Wait Synchronization Bugs for Latency-Critical Applications</strong>," <em>IEEE Trans. Parallel Distributed Syst. (TPDS)</em> 35(2): 297–309, 2024 · <strong>CCF-A</strong> · 26th ACM SIGOPS ChinaSys Spotlight Paper</li>
       <li>Y. Li, N. Li, Y. Zhang, J. Guo, B. Huang, X. Meng, and W. Huang, "<strong>Hmem: A Holistic Memory Performance Metric for Cloud Computing</strong>," <em>International Symposium on Benchmarking, Measuring and Optimization (Bench 2023)</em>, Springer Nature, pp. 171–187</li>
-      <li>国家发明专利 1 项（华东师范大学与腾讯云联合申请，公开号：202211363677.2）</li>
-      <li>小米<strong>软件部 AI 能效突破奖</strong>、<strong>手机部优榜样</strong>、<strong>手机部季度之星</strong>；绩效优异，曾获 <strong>S 级与 A 级</strong>绩效评价</li>
-      <li>腾讯云服务器评测调优开源协同荣誉证书（腾讯技术委员会颁发）、腾讯云“小红花 · 日拱一卒”奖</li>
-      <li>上海市优秀毕业生、校优秀学生、企业奖学金</li>
-      <li>中国大学生计算机设计大赛二等奖、上海市大学生计算机应用能力大赛二等奖</li>
+      <li><span class="zh">国家发明专利 1 项（华东师范大学与腾讯云联合申请，公开号：202211363677.2）</span><span class="en">One national invention patent (joint application by East China Normal University and Tencent Cloud, Publication No. 202211363677.2)</span></li>
     </ul>
   </section>
 
   <section>
-    <h2>核心技能 Skills</h2>
+    <h2><span class="zh">荣誉奖项</span><span class="en">Honors &amp; Awards</span></h2>
+    <ul class="points">
+      <li><span class="zh">小米<strong>软件部 AI 能效突破奖</strong>、<strong>手机部优榜样</strong>、<strong>手机部季度之星</strong>；绩效优异，曾获 <strong>S 级与 A 级</strong>绩效评价</span><span class="en">Xiaomi <strong>Software Division AI Energy-Efficiency Breakthrough Award</strong> · <strong>Phone Division Role Model</strong> · <strong>Phone Division Quarterly Star</strong>; <strong>S- and A-level</strong> performance ratings</span></li>
+      <li><span class="zh">腾讯云服务器评测调优开源协同荣誉证书（腾讯技术委员会颁发）、腾讯云“小红花 · 日拱一卒”奖</span><span class="en">Tencent Cloud Open-Collaboration Honor Certificate for server benchmark tuning (awarded by the Tencent Technical Committee); Tencent Cloud "Little Red Flower" award</span></li>
+      <li><span class="zh">上海市优秀毕业生、校优秀学生、企业奖学金</span><span class="en">Shanghai Outstanding Graduate; University Outstanding Student; Corporate Scholarship</span></li>
+      <li><span class="zh">中国大学生计算机设计大赛二等奖、上海市大学生计算机应用能力大赛二等奖</span><span class="en">Second Prize, Chinese Collegiate Computing Design Competition; Second Prize, Shanghai Collegiate Computer Application Ability Competition</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="zh">核心技能</span><span class="en">Skills</span></h2>
     <dl class="skills">
-      <dt>性能分析</dt>
-      <dd>Perfetto / Perf 采样与热点分析 · TopDown 微架构分析 · 差分火焰图 · USE 方法</dd>
-      <dt>系统优化</dt>
-      <dd>AutoFDO 反馈编译优化 · 帧率与功耗调优 · NUMA / 内存优化 · 缓存预取</dd>
-      <dt>系统技术</dt>
-      <dd>eBPF / BCC 开发 · ETM 微架构数据采集 · Linux 性能指标体系</dd>
-      <dt>工程能力</dt>
-      <dd>C / C++ · Python · Git · 性能评测流水线与平台开发</dd>
+      <dt><span class="zh">性能分析</span><span class="en">Performance Analysis</span></dt>
+      <dd><span class="zh">Perfetto / Perf 采样与热点分析 · TopDown 微架构分析 · 差分火焰图 · USE 方法</span><span class="en">Perfetto / Perf sampling &amp; hotspot analysis · TopDown microarchitecture analysis · Differential flame graphs · USE method</span></dd>
+      <dt><span class="zh">系统优化</span><span class="en">System Optimization</span></dt>
+      <dd><span class="zh">AutoFDO 反馈编译优化 · 帧率与功耗调优 · NUMA / 内存优化 · 缓存预取</span><span class="en">AutoFDO feedback-directed optimization · Frame-rate &amp; power tuning · NUMA / memory optimization · Cache prefetching</span></dd>
+      <dt><span class="zh">系统技术</span><span class="en">Systems</span></dt>
+      <dd><span class="zh">eBPF / BCC 开发 · ETM 微架构数据采集 · Linux 性能指标体系</span><span class="en">eBPF / BCC development · ETM microarchitecture data collection · Linux performance metrics</span></dd>
+      <dt><span class="zh">工程能力</span><span class="en">Engineering</span></dt>
+      <dd><span class="zh">C / C++ · Python · Git · 性能评测流水线与平台开发</span><span class="en">C / C++ · Python · Git · Benchmark pipelines &amp; platform development</span></dd>
     </dl>
   </section>
 
   <section>
-    <h2>教育经历 Education</h2>
+    <h2><span class="zh">教育经历</span><span class="en">Education</span></h2>
 
     <div class="entry">
       <div class="entry-head">
-        <div class="entry-title">华东师范大学 <span class="role">（985 · 双一流）· 硕士</span></div>
+        <div class="entry-title"><span class="zh">华东师范大学 <span class="role">（985 · 双一流）· 硕士</span></span><span class="en">East China Normal University <span class="role">· M.S.</span></span></div>
         <div class="entry-date">2021.09 — 2024.06</div>
       </div>
-      <div class="entry-sub">SOLE 系统优化实验室，师从郭健美教授、黄波教授</div>
+      <div class="entry-sub"><span class="zh"><a href="https://solelab.tech/" target="_blank" rel="noopener">SOLE 系统优化实验室</a>，师从郭健美教授、黄波教授</span><span class="en"><a href="https://solelab.tech/" target="_blank" rel="noopener">System Optimization Laboratory (SOLE)</a>, advised by Prof. Jianmei Guo and Prof. Bo Huang</span></div>
     </div>
 
     <div class="entry">
       <div class="entry-head">
-        <div class="entry-title">上海工程技术大学 <span class="role">· 本科</span></div>
+        <div class="entry-title"><span class="zh">上海工程技术大学 <span class="role">· 本科</span></span><span class="en">Shanghai University of Engineering Science <span class="role">· B.Eng.</span></span></div>
         <div class="entry-date">2017.09 — 2021.06</div>
       </div>
-      <div class="entry-sub">信息管理与信息系统专业</div>
+      <div class="entry-sub"><span class="zh">信息管理与信息系统专业</span><span class="en">Information Management and Information Systems</span></div>
     </div>
   </section>
 
   <footer>
-    <span>© 2026 力宇阳 · Li Yuyang</span>
+    <span>© 2026 <span class="zh">力宇阳</span><span class="en">Yuyang Li</span></span>
     <span><a href="mailto:1357918777@qq.com">Email</a> · <a href="https://github.com/ALILIYES" target="_blank" rel="noopener">GitHub</a></span>
   </footer>
 
 </div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('langToggle');
+  var titles = {
+    zh: '力宇阳 · 系统优化工程师',
+    en: 'Yuyang Li · System Optimization Engineer'
+  };
+  function setLang(lang) {
+    root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', lang === 'zh' ? 'zh-CN' : 'en');
+    document.title = titles[lang];
+    btn.textContent = lang === 'zh' ? 'EN' : '中文';
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('lang'); } catch (e) {}
+  var initial = saved || ((navigator.language || 'zh').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en');
+  setLang(initial);
+  btn.addEventListener('click', function () {
+    setLang(root.getAttribute('data-lang') === 'zh' ? 'en' : 'zh');
+  });
+})();
+</script>
 </body>
 </html>
