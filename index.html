@@ -176,6 +176,13 @@
     background: var(--light);
   }
   ul.points li strong { font-weight: 600; color: var(--ink); }
+  ul.points li a {
+    color: var(--gray);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    transition: color .15s, border-color .15s;
+  }
+  ul.points li a:hover { color: var(--ink); border-bottom-color: var(--ink); }
 
   /* Highlights */
   .highlights li { font-size: 15px; margin-bottom: 8px; }
@@ -239,6 +246,7 @@ XmXEnkpChkGpp5K2sFXSlK6cFKUoBSlKAUpSgFKUoBSlKAUpSgFKUoDha0toK1qCUpGST0A86+f27euX
       <span class="zh">力宇阳，现任小米科技系统优化工程师，从事移动终端游戏性能的系统级优化与微架构预研，工作涵盖反馈式编译优化（AutoFDO）、微架构性能数据分析、帧率与功耗调优等方向。此前任腾讯云服务器性能工程师，负责云服务器性能评估与建模、性能分析优化平台开发及线上业务性能问题定位。硕士毕业于华东师范大学<a href="https://solelab.tech/" target="_blank" rel="noopener">系统优化实验室（SOLE）</a>，主要研究兴趣为系统性能分析与优化方法。</span><span class="en">Yuyang Li is a System Optimization Engineer at Xiaomi, where he works on system-level performance optimization for mobile gaming and microarchitecture research, spanning feedback-directed compiler optimization (AutoFDO), microarchitecture performance analysis, and frame-rate / power tuning. Previously, he was a Server Performance Engineer at Tencent Cloud, responsible for performance evaluation and modeling of cloud servers, development of performance analysis platforms, and diagnosis of production performance issues. He received his M.S. from East China Normal University as a member of the <a href="https://solelab.tech/" target="_blank" rel="noopener">System Optimization Laboratory (SOLE)</a>. His research interest lies in systems performance analysis and optimization.</span>
     </p>
     <div class="contact">
+      <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
       <a href="mailto:1357918777@qq.com">1357918777@qq.com</a>
       <a href="https://github.com/ALILIYES" target="_blank" rel="noopener">github.com/ALILIYES</a>
       <span><span class="zh">上海</span><span class="en">Shanghai</span></span>
@@ -246,10 +254,20 @@ XmXEnkpChkGpp5K2sFXSlK6cFKUoBSlKAUpSgFKUoBSlKAUpSgFKUoDha0toK1qCUpGST0A86+f27euX
   </header>
 
   <section>
+    <h2><span class="zh">动态</span><span class="en">News</span></h2>
+    <ul class="points">
+      <li><span class="zh">[2024.07] 加入小米科技，任系统优化工程师，从事手机游戏性能优化与微架构预研。</span><span class="en">[Jul 2024] Joined Xiaomi as a System Optimization Engineer, working on mobile gaming performance and microarchitecture research.</span></li>
+      <li><span class="zh">[2024] TCSA 论文发表于 IEEE TPDS 35(2)（CCF-A），并获 26th ACM SIGOPS ChinaSys Spotlight Paper。</span><span class="en">[2024] TCSA was published in IEEE TPDS 35(2) (CCF-A) and selected as a 26th ACM SIGOPS ChinaSys Spotlight Paper.</span></li>
+      <li><span class="zh">[2023] Hmem 论文发表于 Bench 2023（Springer）。</span><span class="en">[2023] Hmem was published at Bench 2023 (Springer).</span></li>
+      <li><span class="zh">[2022] 国家发明专利申请（华东师范大学与腾讯云联合申请，公开号：202211363677.2）。</span><span class="en">[2022] National invention patent application filed jointly by East China Normal University and Tencent Cloud (No. 202211363677.2).</span></li>
+    </ul>
+  </section>
+
+  <section>
     <h2><span class="zh">论文与专利</span><span class="en">Publications &amp; Patent</span></h2>
     <ul class="points">
-      <li>N. Li, J. Guo, B. Huang, Y. Li, Y. Zhang, C. Li, and W. Huang, "<strong>TCSA: Efficient Localization of Busy-Wait Synchronization Bugs for Latency-Critical Applications</strong>," <em>IEEE Trans. Parallel Distributed Syst. (TPDS)</em> 35(2): 297–309, 2024 · <strong>CCF-A</strong> · 26th ACM SIGOPS ChinaSys Spotlight Paper</li>
-      <li>Y. Li, N. Li, Y. Zhang, J. Guo, B. Huang, X. Meng, and W. Huang, "<strong>Hmem: A Holistic Memory Performance Metric for Cloud Computing</strong>," <em>International Symposium on Benchmarking, Measuring and Optimization (Bench 2023)</em>, Springer Nature, pp. 171–187</li>
+      <li><strong>N. Li</strong>, J. Guo, B. Huang, Y. Li, Y. Zhang, C. Li, and W. Huang, "<strong>TCSA: Efficient Localization of Busy-Wait Synchronization Bugs for Latency-Critical Applications</strong>," <em>IEEE Trans. Parallel Distributed Syst. (TPDS)</em> 35(2): 297–309, 2024 · <strong>CCF-A</strong> · 26th ACM SIGOPS ChinaSys Spotlight Paper · <a href="https://ieeexplore.ieee.org/document/10356837" target="_blank" rel="noopener">IEEE Xplore</a></li>
+      <li>Y. Li, <strong>N. Li</strong>, Y. Zhang, J. Guo, B. Huang, X. Meng, and W. Huang, "<strong>Hmem: A Holistic Memory Performance Metric for Cloud Computing</strong>," <em>International Symposium on Benchmarking, Measuring and Optimization (Bench 2023)</em>, Springer Nature, pp. 171–187 · <a href="https://link.springer.com/chapter/10.1007/978-981-97-0316-6_11" target="_blank" rel="noopener">Springer</a></li>
       <li><span class="zh">国家发明专利 1 项（华东师范大学与腾讯云联合申请，公开号：202211363677.2）</span><span class="en">One national invention patent (joint application by East China Normal University and Tencent Cloud, Publication No. 202211363677.2)</span></li>
     </ul>
   </section>
@@ -290,7 +308,7 @@ XmXEnkpChkGpp5K2sFXSlK6cFKUoBSlKAUpSgFKUoBSlKAUpSgFKUoDha0toK1qCUpGST0A86+f27euX
   <section>
     <h2><span class="zh">荣誉奖项</span><span class="en">Honors &amp; Awards</span></h2>
     <ul class="points">
-      <li><span class="zh">小米<strong>软件部 AI 能效突破奖</strong>、<strong>手机部优榜样</strong>、<strong>手机部季度之星</strong></span><span class="en">Xiaomi <strong>Software Division AI Energy-Efficiency Breakthrough Award</strong> · <strong>Phone Division Role Model</strong> · <strong>Phone Division Quarterly Star</strong></span></li>
+      <li><span class="zh">小米软件部 AI 能效突破奖、手机部优榜样、手机部季度之星</span><span class="en">Xiaomi Software Division AI Energy-Efficiency Breakthrough Award · Phone Division Role Model · Phone Division Quarterly Star</span></li>
       <li><span class="zh">腾讯云服务器评测调优开源协同荣誉证书（腾讯技术委员会颁发）、腾讯云"小红花 · 日拱一卒"奖</span><span class="en">Tencent Cloud Open-Collaboration Honor Certificate for server benchmark tuning (awarded by the Tencent Technical Committee); Tencent Cloud "Little Red Flower" award</span></li>
       <li><span class="zh">上海市优秀毕业生、校优秀学生、企业奖学金</span><span class="en">Shanghai Outstanding Graduate; University Outstanding Student; Corporate Scholarship</span></li>
       <li><span class="zh">中国大学生计算机设计大赛二等奖、上海市大学生计算机应用能力大赛二等奖</span><span class="en">Second Prize, Chinese Collegiate Computing Design Competition; Second Prize, Shanghai Collegiate Computer Application Ability Competition</span></li>
@@ -301,13 +319,13 @@ XmXEnkpChkGpp5K2sFXSlK6cFKUoBSlKAUpSgFKUoBSlKAUpSgFKUoDha0toK1qCUpGST0A86+f27euX
     <h2><span class="zh">核心技能</span><span class="en">Skills</span></h2>
     <dl class="skills">
       <dt><span class="zh">性能分析</span><span class="en">Performance Analysis</span></dt>
-      <dd><span class="zh">Perfetto / Perf 采样与热点分析 · TopDown 微架构分析 · 差分火焰图 · USE 方法</span><span class="en">Perfetto / Perf sampling &amp; hotspot analysis · TopDown microarchitecture analysis · Differential flame graphs · USE method</span></dd>
+      <dd><span class="zh">Perfetto / Perf 采样与热点函数分析 · TopDown 微架构分析 · 差分火焰图 · USE 方法 · eBPF 追踪定位</span><span class="en">Perfetto / Perf sampling &amp; hotspot analysis · TopDown microarchitecture analysis · Differential flame graphs · USE method · eBPF tracing</span></dd>
       <dt><span class="zh">系统优化</span><span class="en">System Optimization</span></dt>
-      <dd><span class="zh">AutoFDO 反馈编译优化 · 帧率与功耗调优 · NUMA / 内存优化 · 缓存预取</span><span class="en">AutoFDO feedback-directed optimization · Frame-rate &amp; power tuning · NUMA / memory optimization · Cache prefetching</span></dd>
+      <dd><span class="zh">AutoFDO 反馈编译优化 · 帧率与功耗调优 · 缓存硬件预取优化 · NUMA 分配策略与内存优化 · 内存泄漏分析</span><span class="en">AutoFDO feedback-directed optimization · Frame-rate &amp; power tuning · Cache hardware-prefetch optimization · NUMA allocation &amp; memory optimization · Memory-leak analysis</span></dd>
       <dt><span class="zh">系统技术</span><span class="en">Systems</span></dt>
-      <dd><span class="zh">eBPF / BCC 开发 · ETM 微架构数据采集 · Linux 性能指标体系</span><span class="en">eBPF / BCC development · ETM microarchitecture data collection · Linux performance metrics</span></dd>
+      <dd><span class="zh">eBPF / BCC 工具开发 · ETM 微架构数据采集 · Linux 性能指标体系 · 微架构性能数据分析</span><span class="en">eBPF / BCC tool development · ETM microarchitecture data collection · Linux performance metrics · Microarchitecture performance data analysis</span></dd>
       <dt><span class="zh">工程能力</span><span class="en">Engineering</span></dt>
-      <dd><span class="zh">C / C++ · Python · Git · 性能评测流水线与平台开发</span><span class="en">C / C++ · Python · Git · Benchmark pipelines &amp; platform development</span></dd>
+      <dd><span class="zh">C / C++ · Python · Git · Linux · 性能评测流水线与性能分析平台开发</span><span class="en">C / C++ · Python · Git · Linux · Benchmark pipelines &amp; performance analysis platform development</span></dd>
     </dl>
   </section>
 
