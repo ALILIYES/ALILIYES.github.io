@@ -7,11 +7,12 @@
 <meta name="description" content="力宇阳 — 系统优化工程师，专注于性能分析、微架构优化与编译优化。">
 <style>
   :root {
-    --ink: #1a1a1a;
-    --gray: #6b6b6b;
-    --light: #9a9a9a;
-    --line: #e5e5e5;
-    --accent: #b3541e;
+    --ink: rgba(0, 0, 0, 0.9);      /* color.labels.primary */
+    --gray: rgba(0, 0, 0, 0.6);     /* color.labels.secondary */
+    --light: rgba(0, 0, 0, 0.45);   /* color.labels.tertiary */
+    --line: rgba(0, 0, 0, 0.13);    /* color.separator.s1 */
+    --accent: #b3541e;              /* personal brand accent */
+    --focus: #1783ff;               /* color.status.kimiBlue */
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
@@ -26,23 +27,29 @@
   .page {
     max-width: 720px;
     margin: 0 auto;
-    padding: 88px 28px 80px;
+    padding: 80px 28px;
     position: relative;
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 2px;
   }
 
   /* Language toggle */
   .lang-toggle {
     position: absolute;
-    top: 30px;
+    top: 32px;
     right: 28px;
     font-family: inherit;
-    font-size: 12.5px;
+    font-size: 12px;
     letter-spacing: 0.08em;
     color: var(--gray);
     background: none;
     border: 1px solid var(--line);
     border-radius: 999px;
-    padding: 5px 15px;
+    padding: 4px 14px;
     cursor: pointer;
     transition: color .15s, border-color .15s;
   }
@@ -52,11 +59,11 @@
   html[data-lang="en"] .zh { display: none; }
 
   /* Header */
-  header { margin-bottom: 52px; }
+  header { margin-bottom: 48px; }
   .masthead {
     display: flex;
     align-items: center;
-    gap: 26px;
+    gap: 24px;
   }
   .avatar {
     width: 92px;
@@ -67,7 +74,7 @@
   }
   h1 {
     font-family: "Songti SC", "STSong", "SimSun", "Noto Serif CJK SC", serif;
-    font-size: 38px;
+    font-size: 36px;
     font-weight: 700;
     letter-spacing: 0.04em;
     line-height: 1.2;
@@ -79,18 +86,20 @@
   }
   .title-line {
     margin-top: 8px;
-    font-size: 17px;
+    font-size: 16px;
     color: var(--accent);
     font-weight: 600;
     letter-spacing: 0.03em;
   }
   .bio {
-    margin-top: 26px;
+    margin-top: 24px;
     color: var(--gray);
-    font-size: 15px;
+    font-size: 16px;
     max-width: 640px;
     text-align: justify;
+    text-wrap: pretty;
   }
+  html[data-lang="en"] .bio { text-align: left; }
   .bio a {
     color: var(--gray);
     text-decoration: none;
@@ -99,12 +108,12 @@
   }
   .bio a:hover { color: var(--ink); border-bottom-color: var(--ink); }
   .contact {
-    margin-top: 22px;
-    font-size: 14.5px;
+    margin-top: 20px;
+    font-size: 14px;
     color: var(--gray);
     display: flex;
     flex-wrap: wrap;
-    gap: 6px 22px;
+    gap: 4px 20px;
   }
   .contact a {
     color: var(--ink);
@@ -115,34 +124,36 @@
   .contact a:hover { border-bottom-color: var(--ink); }
 
   /* Sections */
-  section { margin-top: 52px; }
+  section { margin-top: 48px; }
   h2 {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.18em;
     color: var(--light);
     text-transform: uppercase;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
     border-bottom: 1px solid var(--line);
-    margin-bottom: 22px;
+    margin-bottom: 20px;
   }
 
-  .entry { margin-bottom: 28px; }
+  .entry { margin-bottom: 24px; }
   .entry:last-child { margin-bottom: 0; }
   .entry-head {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 16px;
+    column-gap: 16px;
+    row-gap: 2px;
     flex-wrap: wrap;
   }
   .entry-title {
-    font-size: 16.5px;
+    font-size: 16px;
     font-weight: 600;
+    text-wrap: balance;
   }
   .entry-title .role { font-weight: 400; color: var(--gray); }
   .entry-date {
-    font-size: 13.5px;
+    font-size: 12px;
     color: var(--light);
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
@@ -154,17 +165,19 @@
   }
   .entry-sub a { color: var(--gray); text-decoration: none; border-bottom: 1px solid var(--line); }
   .entry-sub a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
   ul.points {
-    margin-top: 10px;
+    margin-top: 8px;
     padding-left: 0;
     list-style: none;
   }
   ul.points li {
     position: relative;
     padding-left: 16px;
-    font-size: 14.5px;
-    color: #3d3d3d;
-    margin-bottom: 6px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.78);
+    margin-bottom: 8px;
+    text-wrap: pretty;
   }
   ul.points li::before {
     content: "";
@@ -184,26 +197,30 @@
   }
   ul.points li a:hover { color: var(--ink); border-bottom-color: var(--ink); }
 
-  /* Highlights */
-  .highlights li { font-size: 15px; margin-bottom: 8px; }
+  .nowrap { white-space: nowrap; }
+  .nd {
+    color: var(--light);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
 
   /* Skills */
   .skills {
     display: grid;
-    grid-template-columns: 150px 1fr;
+    grid-template-columns: 140px 1fr;
     row-gap: 12px;
     column-gap: 20px;
-    font-size: 14.5px;
+    font-size: 14px;
   }
-  .skills dt { color: var(--light); font-size: 13.5px; padding-top: 1px; }
-  .skills dd { color: #3d3d3d; }
+  .skills dt { color: var(--light); font-size: 12px; padding-top: 2px; }
+  .skills dd { color: rgba(0, 0, 0, 0.78); text-wrap: pretty; }
 
   /* Footer */
   footer {
-    margin-top: 72px;
+    margin-top: 64px;
     padding-top: 20px;
     border-top: 1px solid var(--line);
-    font-size: 13px;
+    font-size: 12px;
     color: var(--light);
     display: flex;
     justify-content: space-between;
@@ -214,13 +231,13 @@
   footer a:hover { color: var(--ink); }
 
   @media (max-width: 560px) {
-    .page { padding: 64px 22px 60px; }
-    h1 { font-size: 30px; }
-    .masthead { gap: 18px; }
+    .page { padding: 56px 20px; }
+    h1 { font-size: 28px; }
+    .masthead { gap: 16px; }
     .avatar { width: 72px; height: 72px; }
     .skills { grid-template-columns: 1fr; row-gap: 4px; }
-    .skills dd { margin-bottom: 10px; }
-    .lang-toggle { top: 22px; right: 22px; }
+    .skills dd { margin-bottom: 12px; }
+    .lang-toggle { top: 20px; right: 20px; }
   }
 </style>
 </head>
@@ -256,18 +273,18 @@ XmXEnkpChkGpp5K2sFXSlK6cFKUoBSlKAUpSgFKUoBSlKAUpSgFKUoDha0toK1qCUpGST0A86+f27euX
   <section>
     <h2><span class="zh">动态</span><span class="en">News</span></h2>
     <ul class="points">
-      <li><span class="zh">[2024.07] 加入小米科技，任系统优化工程师，从事手机游戏性能优化与微架构预研。</span><span class="en">[Jul 2024] Joined Xiaomi as a System Optimization Engineer, working on mobile gaming performance and microarchitecture research.</span></li>
-      <li><span class="zh">[2024] TCSA 论文发表于 IEEE TPDS 35(2)（CCF-A），并获 26th ACM SIGOPS ChinaSys Spotlight Paper。</span><span class="en">[2024] TCSA was published in IEEE TPDS 35(2) (CCF-A) and selected as a 26th ACM SIGOPS ChinaSys Spotlight Paper.</span></li>
-      <li><span class="zh">[2023] Hmem 论文发表于 Bench 2023（Springer）。</span><span class="en">[2023] Hmem was published at Bench 2023 (Springer).</span></li>
-      <li><span class="zh">[2022] 国家发明专利申请（华东师范大学与腾讯云联合申请，公开号：202211363677.2）。</span><span class="en">[2022] National invention patent application filed jointly by East China Normal University and Tencent Cloud (No. 202211363677.2).</span></li>
+      <li><span class="zh"><span class="nd">[2024.07]</span> 加入小米科技，任系统优化工程师，从事手机游戏性能优化与微架构预研。</span><span class="en"><span class="nd">[Jul 2024]</span> Joined Xiaomi as a System Optimization Engineer, working on mobile gaming performance and microarchitecture research.</span></li>
+      <li><span class="zh"><span class="nd">[2024]</span> TCSA 论文发表于 IEEE TPDS 35(2)（CCF-A），并获 26th ACM SIGOPS ChinaSys Spotlight Paper。</span><span class="en"><span class="nd">[2024]</span> TCSA was published in IEEE TPDS 35(2) (CCF-A) and selected as a 26th ACM SIGOPS ChinaSys Spotlight Paper.</span></li>
+      <li><span class="zh"><span class="nd">[2023]</span> Hmem 论文发表于 Bench 2023（Springer）。</span><span class="en"><span class="nd">[2023]</span> Hmem was published at Bench 2023 (Springer).</span></li>
+      <li><span class="zh"><span class="nd">[2022]</span> 国家发明专利申请（华东师范大学与腾讯云联合申请，公开号：202211363677.2）。</span><span class="en"><span class="nd">[2022]</span> National invention patent application filed jointly by East China Normal University and Tencent Cloud (No. 202211363677.2).</span></li>
     </ul>
   </section>
 
   <section>
     <h2><span class="zh">论文与专利</span><span class="en">Publications &amp; Patent</span></h2>
     <ul class="points">
-      <li><strong>N. Li</strong>, J. Guo, B. Huang, Y. Li, Y. Zhang, C. Li, and W. Huang, "<strong>TCSA: Efficient Localization of Busy-Wait Synchronization Bugs for Latency-Critical Applications</strong>," <em>IEEE Trans. Parallel Distributed Syst. (TPDS)</em> 35(2): 297–309, 2024 · <strong>CCF-A</strong> · 26th ACM SIGOPS ChinaSys Spotlight Paper · <a href="https://ieeexplore.ieee.org/document/10356837" target="_blank" rel="noopener">IEEE Xplore</a></li>
-      <li>Y. Li, <strong>N. Li</strong>, Y. Zhang, J. Guo, B. Huang, X. Meng, and W. Huang, "<strong>Hmem: A Holistic Memory Performance Metric for Cloud Computing</strong>," <em>International Symposium on Benchmarking, Measuring and Optimization (Bench 2023)</em>, Springer Nature, pp. 171–187 · <a href="https://link.springer.com/chapter/10.1007/978-981-97-0316-6_11" target="_blank" rel="noopener">Springer</a></li>
+      <li><strong>N. Li</strong>, J. Guo, B. Huang, Y. Li, Y. Zhang, C. Li, and W. Huang, "<strong>TCSA: Efficient Localization of Busy-Wait Synchronization Bugs for Latency-Critical Applications</strong>," <em>IEEE Trans. Parallel Distributed Syst. (TPDS)</em> 35(2): 297–309, 2024 · <strong>CCF-A</strong> · 26th ACM SIGOPS ChinaSys Spotlight Paper <span class="nowrap">· <a href="https://ieeexplore.ieee.org/document/10356837" target="_blank" rel="noopener">IEEE Xplore</a></span></li>
+      <li>Y. Li, <strong>N. Li</strong>, Y. Zhang, J. Guo, B. Huang, X. Meng, and W. Huang, "<strong>Hmem: A Holistic Memory Performance Metric for Cloud Computing</strong>," <em>International Symposium on Benchmarking, Measuring and Optimization (Bench 2023)</em>, Springer Nature, pp. 171–187 <span class="nowrap">· <a href="https://link.springer.com/chapter/10.1007/978-981-97-0316-6_11" target="_blank" rel="noopener">Springer</a></span></li>
       <li><span class="zh">国家发明专利 1 项（华东师范大学与腾讯云联合申请，公开号：202211363677.2）</span><span class="en">One national invention patent (joint application by East China Normal University and Tencent Cloud, Publication No. 202211363677.2)</span></li>
     </ul>
   </section>
